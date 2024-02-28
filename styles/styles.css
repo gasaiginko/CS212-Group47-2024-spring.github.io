@@ -2,3 +2,42 @@ body{
   background-color: blue;
   color: red:
 }
+
+.container {
+    display: grid;
+    grid-template-rows: auto 1fr auto; 
+    grid-template-columns: 400px auto;
+    grid-template-areas:
+        "header header header"
+        "sidebar main main"
+        "footer footer footer";
+    height: 100vh; 
+}
+
+.container div {
+    background-color: lightgrey;
+    border: 2px solid black;
+    padding: 20px;
+    color: white;
+    text-align: center;
+}
+
+.header {
+    grid-area: header;
+}
+
+.sidebar {
+    grid-area: sidebar;
+    display: flex; 
+    flex-direction: column; 
+    justify-content: flex-start; 
+    align-items: flex-start;
+}
+
+.main-content {
+    grid-area: main;
+}
+
+.footer {
+    grid-area: footer;
+}
