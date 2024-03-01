@@ -1,5 +1,5 @@
 # CS212-Group47-2024-spring.github.io
-This is the repository of CS212 project for Tianyi and Ahmed (Group47)
+This is the repository of CS212 project for Tianyi and Ahmed (Group47) <br>
 
 Content Draft: <br>
 -Topic: First Journy to Flagstaff <br>
@@ -21,3 +21,5 @@ Content Draft: <br>
 ---Surrounding Restaraunt <br>
 ---Policy Tips <br>
 ---Places for study <br>
+
+We can finish Main page first and then work on Traveller's page and Student's page respectively with same template.  <br>
