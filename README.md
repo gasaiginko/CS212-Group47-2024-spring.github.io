@@ -14,3 +14,7 @@ Content Draft: <br>
 
 
 --Students new to NAU's Page: <br>
+---Surrounding Mails
+---Surrounding Restaraunt
+---Policy Tips
+---Places for study
