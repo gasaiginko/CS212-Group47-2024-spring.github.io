@@ -12,11 +12,11 @@ Content Draft: <br>
 ---Insert a map of Flagstaff (if possible, its an drag-and-drop-able google map) <br>
 ---Two entries: Travellers and Freshhman/International students of NAU <br>
 
---Traveller's Page: <br>
+--Traveller's Page (subpage): <br>
 ---Introduction of Flagstaff for travellers <br>
 ---Places of interests: (introduction, weather, comment column, surrounding restaraunts and mails) <br>
 
---Students new to NAU's Page: <br>
+--Students new to NAU's Page (subpage): <br>
 ---Surrounding Mails <br>
 ---Surrounding Restaraunt <br>
 ---Policy Tips <br>
