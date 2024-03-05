@@ -1,7 +1,9 @@
 # CS212-Group47-2024-spring.github.io
 This is the repository of CS212 project for Tianyi and Ahmed (Group47) <br>
+* [Content explannation]()
+* [Files structure explanation]()
 
-Content Draft: <br>
+### Content Draft: <br>
 -Topic: First Journy to Flagstaff <br>
 -Orientation Group: Travellers and Freshman/International stuents of NAU <br>
 -Basic Blocks: <br>
@@ -23,3 +25,12 @@ Content Draft: <br>
 ---Places for study <br>
 
 We can finish Main page first and then work on Traveller's page and Student's page respectively with same template.  <br>
+
+### File structure: <br>
+Main Page: index.html <br>
+Traveller's Page: Travellers/index.html <br>
+Student's Page: NAU/index.html <br>
+
+For css/reference files, they are stored in the **same level** of folder with html file under ```styles```. e.x.: for ```/NAU/index.html```, its corresponding css file is stored at ```/NAU/styles/styles.css```. To check the file that html is using, you can also look for ```<link>``` element in the ```<head>``` section of html file.
+
+
