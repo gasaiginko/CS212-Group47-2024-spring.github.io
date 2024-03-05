@@ -1,0 +1,46 @@
+body{
+    max-width: 100%;
+    background-color: #5e5f91;;
+}
+
+#navigationbar{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+
+    background-color: rgb(135, 194, 128);
+    width: 100%;
+    min-height: 10%;
+    position:fixed;
+    top: 0%;
+}
+
+#navigationitems{
+    width: 20%;
+
+    text-align: center;
+    font-size: 100%;
+}
+
+.container{
+
+    display: flex;
+    flex-direction: column;
+    
+    background-color: #a2a2c8;
+    justify-content: center;
+    padding: 10%;
+    margin:  5%;
+
+    text-align: justify;
+}
+
+
+h1{
+    text-align: center;
+    color:rgb(30, 30, 133);
+}
+
+/* extra selector components can be filled below */
