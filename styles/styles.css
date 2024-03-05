@@ -1,19 +1,199 @@
 
+body{
+    background-color: rgb(234, 231, 231);
+    max-width: 100%;
+}
+
+#name{
+    color: rgb(30, 30, 133);
+}
+
+#name__{
+    color: red;
+}
+
 
 #navigationbar{
     display: flex;
     flex-direction: row;
-    justify-content: start;
-    align-items: start;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
 
+    background-color: rgb(117, 208, 179);
+    width: 100%;
+    min-height: 10%;
     position:fixed;
-    max-width: 50%;
     top: 0%;
 }
 
 #navigationitems{
-    margin: 5%;
-    padding: 2%;
-    text-align: start;
-    font-size: small;
+    width: 20%;
+
+    text-align: center;
+    font-size: 100%;
+}
+
+.container{
+
+    display: flex;
+    flex-direction: column;
+    
+    background-color: rgb(212, 206, 206);
+    justify-content: center;
+    padding: 10%;
+    margin:  5%;
+
+    text-align: justify;
+}
+
+#Introduction{
+    color: #104015;
+}
+
+#Introduction:hover{
+    transition-delay: 0.12;
+    background-color: rgb(222, 222, 120);
+}
+
+/*
+#CV{
+    margin: auto;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+object{
+    max-width: 100%;
+}
+
+#Download{
+    border: 2px solid red;
+    text-align: center;
+    background-color: orange;
+}
+
+#Download:hover{
+    transition-duration: 1s;
+
+    background-color: yellow;
+    transform: rotate(360deg);
+    transform-origin:center;
+}
+*/
+
+a:hover{
+    color: rgb(147, 113, 29);
+}
+
+#img0{
+    transform: matrix(80%,0,0,80%,0,0);
+    transform-origin: center;
+}
+
+/*
+#skills{
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+
+}
+
+#skills:hover{
+    transition-duration: 1s;
+    transition-timing-function: linear;
+
+    border-radius: 25px;
+    border: 2px solid #8fa472;
+    padding: 20px;
+    width: 50%;
+    font-size: 115%;
+}
+
+.section{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows: repeat(2,1fr);
+    row-gap: 5px;
+    margin: 3%;
+}
+*/
+.Traveller:hover{
+    transition-delay: 0.12s;
+    background-color: #7677b4;
+}
+
+.NAU:hover{
+    transition-delay: 0.12s;
+    background-color: #91ae69;
+}
+
+#email{
+    color: blue;
+}
+
+#Authors{
+    font-size: 80%;
+}
+
+
+  
+/*this is the page settings for mobile devices (tablet,phones) which resolution is less than 800px and greater than 400px */
+@media all and (max-width: 850px) {
+
+    #navigationbar{
+        transform: scale(0.8,0.8);
+        transform-origin: center;
+    }
+    
+    #navigationitems{
+        transform: scale(0.75,0.75);
+        transform-origin: center;
+    }
+
+    #img0{
+        transform: matrix(0.5,0,0,0.45,0,0);
+        transform-origin: left;
+    }
+
+
+
+
+    #Education{
+        transform: scale(0.7,0.7);
+        transform-origin: left;
+    }
+}
+
+
+/* this is the settings for smaller moble devices which resolution is less than 400px */
+@media all and (max-width: 400px) {
+
+    #navigationbar{
+        transform: scale(0.6,0.6);
+        transform-origin: center;
+    }
+    
+    #navigationitems{
+        transform: scale(0.65,0.65);
+        transform-origin: center;
+    }
+
+    img{
+        transform: matrix(1.4,0,0,0.08,0,0);
+        transform-origin: left;
+        max-width: 70%;
+    }
+    #img0{
+        transform: matrix(1.3,0,0,1,0);
+        transform-origin: center;
+        
+    }
+    #Education{
+        transform: scale(0.4,0.4);
+        transform-origin: left;
+    }
 }
