@@ -44,3 +44,23 @@ h1{
 }
 
 /* extra selector components can be filled below */
+
+.introduction-section{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px;
+}
+
+.introduction-section {
+  transition: background-color 0.3s, transform 0.3s; 
+}
+
+.introduction-section:hover {
+  background-color: #007bff; 
+  transform: scale(1.03); 
+  border-radius: 8px; 
+}
+
+
