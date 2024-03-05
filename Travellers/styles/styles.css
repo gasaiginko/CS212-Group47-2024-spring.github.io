@@ -51,10 +51,7 @@ h1{
     justify-content: space-around;
     align-items: center;
     padding: 20px;
-}
-
-.introduction-section {
-  transition: background-color 0.3s, transform 0.3s; 
+    transition: background-color 0.3s, transform 0.3s; 
 }
 
 .introduction-section:hover {
