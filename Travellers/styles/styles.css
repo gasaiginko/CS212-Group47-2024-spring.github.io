@@ -41,9 +41,12 @@ body{
 
 h1{
     text-align: center;
-    color:rgb(30, 30, 133);
+    color: rgb(30, 30, 133);
 }
 
+img{
+    width: 80%;
+}
 /* extra selector components can be filled below */
 
 .introduction-section{
