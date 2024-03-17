@@ -1,24 +1,26 @@
 # CS212-Group47-2024-spring.github.io
-This is the repository of CS212 project for Tianyi and Ahmed (Group47) <br>
+This is the repository of CS212 project for Tianyi and Ahmed (Group47) <be>
 * [Content explannation](https://github.com/gasaiginko/CS212-Group47-2024-spring.github.io#content-draft-)
 * [Files structure explanation](https://github.com/gasaiginko/CS212-Group47-2024-spring.github.io#file-structure-)
 
+**[To view our website](https://gasaiginko.github.io/CS212-Group47-2024-spring.github.io/)**
+  
 ### Content Draft: <br>
 -Topic: First Journy to Flagstaff <br>
 -Orientation Group: Travellers and Freshman/International stuents of NAU <br>
 -Basic Blocks: <br>
 
---Main Page: <br>
+--Main Page: <br> **Tianyi, Ahmed**
 ---Introduction of Flagstaff: Features of flagstaff (temparature, geometry, location, civilazation, life comsumption) <br>
 ---Weather Information at different districts <br>
 ---Insert a map of Flagstaff (if possible, its an drag-and-drop-able google map) <br>
 ---Two entries: Travellers and Freshhman/International students of NAU <br>
 
---Traveller's Page (subpage): <br>
+--Traveller's Page (subpage): <br> **Ahmed**
 ---Introduction of Flagstaff for travellers <br>
 ---Places of interests: (introduction, weather, comment column, surrounding restaraunts and mails) <br>
 
---Students new to NAU's Page (subpage): <br>
+--Students new to NAU's Page (subpage): <br> **Tianyi**
 ---Surrounding Mails <br>
 ---Surrounding Restaraunt <br>
 ---Policy Tips <br>
