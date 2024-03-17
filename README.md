@@ -10,17 +10,17 @@ This is the repository of CS212 project for Tianyi and Ahmed (Group47) <be>
 -Orientation Group: Travellers and Freshman/International stuents of NAU <br>
 -Basic Blocks: <br>
 
---Main Page: <br> **Tianyi, Ahmed**
+--Main Page: **Tianyi, Ahmed** <br> 
 ---Introduction of Flagstaff: Features of flagstaff (temparature, geometry, location, civilazation, life comsumption) <br>
 ---Weather Information at different districts <br>
 ---Insert a map of Flagstaff (if possible, its an drag-and-drop-able google map) <br>
 ---Two entries: Travellers and Freshhman/International students of NAU <br>
 
---Traveller's Page (subpage): <br> **Ahmed**
+--Traveller's Page (subpage): **Ahmed** <br> 
 ---Introduction of Flagstaff for travellers <br>
 ---Places of interests: (introduction, weather, comment column, surrounding restaraunts and mails) <br>
 
---Students new to NAU's Page (subpage): <br> **Tianyi**
+--Students new to NAU's Page (subpage): **Tianyi** <br> 
 ---Surrounding Mails <br>
 ---Surrounding Restaraunt <br>
 ---Policy Tips <br>
