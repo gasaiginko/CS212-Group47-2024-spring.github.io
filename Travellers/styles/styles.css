@@ -65,4 +65,34 @@ img{
   border-radius: 8px; 
 }
 
+.outdooractivities-section{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px;
+    transition: background-color 0.3s, transform 0.3s; 
+    border: 2px solid black;
+}
 
+.outdooractivities-section:hover {
+  background-color: #007bff; 
+  transform: scale(1.03); 
+  border-radius: 8px; 
+}
+
+.entertainment{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px;
+    transition: background-color 0.3s, transform 0.3s; 
+    border: 2px solid black;
+}
+
+.entertainment:hover {
+  background-color: #007bff; 
+  transform: scale(1.03); 
+  border-radius: 8px; 
+}
