@@ -96,3 +96,36 @@ img{
   transform: scale(1.03); 
   border-radius: 8px; 
 }
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+#comments-container {
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+.comment {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.comment textarea {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.reply-container {
+    margin-left: 20px;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+}
