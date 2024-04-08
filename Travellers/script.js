@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const addCommentBtn = document.getElementById("add-comment-btn");
+    const addCommentBtn = document.getElementById("addComment-btn"); // corrected button ID
     const commentForm = document.getElementById("comment-form");
     const commentsContainer = document.getElementById("comments-container");
     let commentId = 1;
@@ -53,4 +53,3 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 });
-
