@@ -1,10 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const addCommentBtn = document.getElementById("addComment-btn"); // corrected button ID
-    const commentForm = document.getElementById("comment-form");
     const commentsContainer = document.getElementById("comments-container");
     let commentId = 1;
-
-    addCommentBtn.addEventListener("click", addComment);
 
     function addComment() {
         const commentText = document.getElementById("comment").value.trim();
@@ -16,20 +12,32 @@ document.addEventListener("DOMContentLoaded", function () {
 
             commentDiv.innerHTML = `
                 <p>${commentText}</p>
-                <button onclick="editComment(${commentId})">Edit</button>
-                <button onclick="deleteComment(${commentId})">Delete</button>
-                <button onclick="replyToComment(${commentId})">Reply</button>
+                <button class="edit-btn">Edit</button>
+                <button class="delete-btn">Delete</button>
+                <button class="reply-btn">Reply</button>
                 <div id="reply-container${commentId}" class="reply-container"></div>
             `;
 
             commentsContainer.appendChild(commentDiv);
             commentForm.reset();
             commentId++;
+
+            // Attach event listeners to the edit and delete buttons
+            const editButtons = commentDiv.querySelectorAll(".edit-btn");
+            const deleteButtons = commentDiv.querySelectorAll(".delete-btn");
+
+            editButtons.forEach(button => {
+                button.addEventListener("click", () => editComment(commentDiv.id));
+            });
+
+            deleteButtons.forEach(button => {
+                button.addEventListener("click", () => deleteComment(commentDiv.id));
+            });
         }
     }
 
     function editComment(id) {
-        const commentDiv = document.getElementById("comment" + id);
+        const commentDiv = document.getElementById(id);
         const newCommentText = prompt("Edit your comment:", commentDiv.querySelector("p").innerText);
         
         if (newCommentText !== null) {
@@ -38,7 +46,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function deleteComment(id) {
-        const commentDiv = document.getElementById("comment" + id);
+        const commentDiv = document.getElementById(id);
         commentDiv.remove();
     }
 
@@ -52,4 +60,8 @@ document.addEventListener("DOMContentLoaded", function () {
             replyContainer.appendChild(replyDiv);
         }
     }
+
+    const addCommentBtn = document.getElementById("addComment-btn");
+    const commentForm = document.getElementById("comment-form");
+    addCommentBtn.addEventListener("click", addComment);
 });
