@@ -1,52 +1,91 @@
 document.addEventListener("DOMContentLoaded", function () {
     const commentsContainer = document.getElementById("comments-container");
+    const commentForm = document.getElementById("comment-form");
     let commentId = 1;
+
+    // Load comments from local storage when the page loads
+    loadComments();
+
+    function loadComments() {
+        const comments = JSON.parse(localStorage.getItem("comments")) || [];
+        comments.forEach(comment => {
+            displayComment(comment);
+            commentId++;
+        });
+    }
+
+    function saveComments(comments) {
+        localStorage.setItem("comments", JSON.stringify(comments));
+    }
 
     function addComment() {
         const commentText = document.getElementById("comment").value.trim();
 
         if (commentText !== "") {
-            const commentDiv = document.createElement("div");
-            commentDiv.className = "comment";
-            commentDiv.id = "comment" + commentId;
+            const comment = { id: commentId, text: commentText };
+            displayComment(comment);
 
-            commentDiv.innerHTML = `
-                <p>${commentText}</p>
-                <button class="edit-btn">Edit</button>
-                <button class="delete-btn">Delete</button>
-                <button class="reply-btn">Reply</button>
-                <div id="reply-container${commentId}" class="reply-container"></div>
-            `;
+            // Save the comment to local storage
+            const comments = JSON.parse(localStorage.getItem("comments")) || [];
+            comments.push(comment);
+            saveComments(comments);
 
-            commentsContainer.appendChild(commentDiv);
             commentForm.reset();
             commentId++;
-
-            // Attach event listeners to the edit and delete buttons
-            const editButtons = commentDiv.querySelectorAll(".edit-btn");
-            const deleteButtons = commentDiv.querySelectorAll(".delete-btn");
-
-            editButtons.forEach(button => {
-                button.addEventListener("click", () => editComment(commentDiv.id));
-            });
-
-            deleteButtons.forEach(button => {
-                button.addEventListener("click", () => deleteComment(commentDiv.id));
-            });
         }
     }
 
-    function editComment(id) {
-        const commentDiv = document.getElementById(id);
-        const newCommentText = prompt("Edit your comment:", commentDiv.querySelector("p").innerText);
-        
-        if (newCommentText !== null) {
-            commentDiv.querySelector("p").innerText = newCommentText;
+    function displayComment(comment) {
+        const commentDiv = document.createElement("div");
+        commentDiv.className = "comment";
+        commentDiv.id = "comment" + comment.id;
+
+        commentDiv.innerHTML = `
+            <p>${comment.text}</p>
+            <button class="edit-btn">Edit</button>
+            <button class="delete-btn">Delete</button>
+            <button class="reply-btn">Reply</button>
+            <div id="reply-container${comment.id}" class="reply-container"></div>
+        `;
+
+        commentsContainer.appendChild(commentDiv);
+
+        // Attach event listeners to the edit and delete buttons
+        const editButtons = commentDiv.querySelectorAll(".edit-btn");
+        const deleteButtons = commentDiv.querySelectorAll(".delete-btn");
+
+        editButtons.forEach(button => {
+            button.addEventListener("click", () => editComment(comment.id, comment.text));
+        });
+
+        deleteButtons.forEach(button => {
+            button.addEventListener("click", () => deleteComment(comment.id));
+        });
+    }
+
+    function editComment(id, currentText) {
+        const newText = prompt("Edit your comment:", currentText);
+
+        if (newText !== null) {
+            const comments = JSON.parse(localStorage.getItem("comments")) || [];
+            const comment = comments.find(comment => comment.id === id);
+
+            if (comment) {
+                comment.text = newText;
+                saveComments(comments);
+
+                const commentDiv = document.getElementById("comment" + id);
+                commentDiv.querySelector("p").innerText = newText;
+            }
         }
     }
 
     function deleteComment(id) {
-        const commentDiv = document.getElementById(id);
+        const comments = JSON.parse(localStorage.getItem("comments")) || [];
+        const updatedComments = comments.filter(comment => comment.id !== id);
+        saveComments(updatedComments);
+
+        const commentDiv = document.getElementById("comment" + id);
         commentDiv.remove();
     }
 
@@ -62,6 +101,5 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     const addCommentBtn = document.getElementById("addComment-btn");
-    const commentForm = document.getElementById("comment-form");
     addCommentBtn.addEventListener("click", addComment);
 });
