@@ -1,6 +1,6 @@
 # CS212-Group47-2024-spring.github.io
 
-## Please Write Down your updates to prevent overwriting, format: (file, content, time-date) ##
+## Please Write Down your updates to prevent overwriting, format: (file, content, time-date), and please insert your new code instead of directly upload (if the file already exists) ##
 **Example: 1. (/Travellers/script.js, comment added, 20:00-4-17)**
 
 ## Project Introduction ##
