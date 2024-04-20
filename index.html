@@ -45,7 +45,25 @@
             <h4>Weather:</h4>
                 <div id="Weather"> 
                     This part will be used to import JS code to display realtime weather.
+
+                    <div id="weatherContent">
+                        <div id="weatherText">
+                            <p style="position: relative; right: 15%; top: 15%;">Current Weather (Flagstaff): </p>
+                            <p id="weatherCurrent">10000</p><br>
+                            <img id="weatherIcon" style="display: none; background-color: white;">
+                            <button id="clickFW" onclick="clickFW()" style="position: relative; top: -80px;">Click Here to Display/Hind Weather Forcast</button>
+                            <div id="futureWeather" style="position: relative; top: -80px; display: none;">
+                                <p style="position: relative; right: 15%; top: 15%;">Weather Forcast: </p>
+                            </div>
+                            <p>Weather Information is Fetched from <a href="https://home.openweathermap.org/api_keys">OpenWeather</a></p>
+                        </div>
+                        <div id="weatherIcon">
+
+                        </div>
+                    </div>
                 </div>
+                <script src="./styles/script.js">
+                </script>
                 <hr>
             </section>
             
