@@ -2,6 +2,8 @@
 
 ## Please Write Down your updates to prevent overwriting, format: (file, content, time-date), and please insert your new code instead of directly upload (if the file already exists) ##
 **Example: 1. (/Travellers/script.js, comment added, 20:00-4-17)**
+1. (index.html and /styles/script.js and styles.css, weather function added, 20:36-4-19)
+
 
 ## Project Introduction ##
 
