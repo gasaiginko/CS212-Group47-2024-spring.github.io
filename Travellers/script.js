@@ -36,8 +36,48 @@ document.addEventListener("DOMContentLoaded", function () {
         const commentDiv = document.createElement("div");
         commentDiv.className = "comment";
         commentDiv.id = "comment" + comment.id;
-        commentDiv.innerHTML = `<p>${comment.text}</p>`;
+        commentDiv.innerHTML = `
+            <p>${comment.text}</p>
+            <button class="edit-btn" data-id="${comment.id}">Edit</button>
+            <button class="delete-btn" data-id="${comment.id}">Delete</button>
+        `;
         commentsContainer.appendChild(commentDiv);
+
+        // Add event listeners for edit and delete buttons
+        const editBtn = commentDiv.querySelector('.edit-btn');
+        editBtn.addEventListener('click', function() {
+            editComment(comment.id);
+        });
+
+        const deleteBtn = commentDiv.querySelector('.delete-btn');
+        deleteBtn.addEventListener('click', function() {
+            deleteComment(comment.id);
+        });
+    }
+
+    function editComment(commentId) {
+        const commentDiv = document.getElementById("comment" + commentId);
+        const newText = prompt("Edit your comment:", commentDiv.querySelector('p').textContent);
+        if (newText !== null) {
+            const comments = JSON.parse(localStorage.getItem("comments")) || [];
+            const commentIndex = comments.findIndex(comment => comment.id === commentId);
+            if (commentIndex !== -1) {
+                comments[commentIndex].text = newText;
+                saveComments(comments);
+                commentDiv.querySelector('p').textContent = newText;
+            }
+        }
+    }
+
+    function deleteComment(commentId) {
+        const commentDiv = document.getElementById("comment" + commentId);
+        const confirmDelete = confirm("Are you sure you want to delete this comment?");
+        if (confirmDelete) {
+            const comments = JSON.parse(localStorage.getItem("comments")) || [];
+            const updatedComments = comments.filter(comment => comment.id !== commentId);
+            saveComments(updatedComments);
+            commentDiv.remove();
+        }
     }
 
     // Event listener for submitting the comment form
