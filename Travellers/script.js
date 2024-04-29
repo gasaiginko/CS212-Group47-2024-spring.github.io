@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const comments = JSON.parse(localStorage.getItem("comments")) || [];
         comments.forEach(comment => {
             displayComment(comment);
-            commentId++;
+            commentId = Math.max(comment.id, commentId) + 1; // Ensure the next comment id is unique
         });
     }
 
