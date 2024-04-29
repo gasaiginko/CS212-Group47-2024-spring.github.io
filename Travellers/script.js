@@ -126,3 +126,4 @@ function replyToComment(id) {
 
 // Function to handle adding a comment
 document.getElementById("addComment-btn").addEventListener("click", addComment);
+ 
