@@ -103,3 +103,47 @@ document.addEventListener("DOMContentLoaded", function () {
   const addCommentBtn = document.getElementById("addComment-btn");
   addCommentBtn.addEventListener("click", addComment);
 });
+
+const fs = require('fs'); // Import Node.js file system module
+
+// Function to load comments from JSON file
+function loadCommentsFromFile() {
+    try {
+        const data = fs.readFileSync('comments.json', 'utf8');
+        return JSON.parse(data);
+    } catch (err) {
+        console.error('Error reading comments file:', err);
+        return [];
+    }
+}
+
+// Function to save comments to JSON file
+function saveCommentsToFile(comments) {
+    try {
+        fs.writeFileSync('comments.json', JSON.stringify(comments, null, 2));
+    } catch (err) {
+        console.error('Error writing comments file:', err);
+    }
+}
+
+// Initialize comments array
+let comments = loadCommentsFromFile();
+
+// Add, edit, delete, and display comment functions would use the 'comments' array
+
+// Example of saving comments after adding a new comment
+function addComment() {
+    // Add new comment to 'comments' array
+    const newComment = { id: commentId, text: commentText };
+    comments.push(newComment);
+
+    // Save 'comments' array to file
+    saveCommentsToFile(comments);
+}
+
+// Example of displaying comments on page load
+document.addEventListener("DOMContentLoaded", function () {
+    comments.forEach(comment => {
+        displayComment(comment);
+    });
+});
