@@ -1,90 +1,133 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const commentsContainer = document.getElementById("comments-container");
-    const commentForm = document.getElementById("comment-form");
-    let commentId = 1;
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+    Travellers to Flagstaff (First Journey to Flagstafff)
+  </title>
+  <link rel="stylesheet" href="./styles/styles.css">
+  <link rel="stylesheet" href="script.js">
+</head>
 
-    // Load comments from local storage when the page loads
-    loadComments();
+<body>
+   
+    <header>
+      <nav>
+        <div id="navigationbar">
+          <div id="navigationitems"><a href="../index.html">Home</a></div>
+          <div id="navigationitems"><a href="index.html#weather">Weather</a></div>
+          <div id="navigationitems"><a href="index.html#outdooractivities">Outdoor Activities</a></div>
+          <div id="navigationitems"><a href="index.html#entertainment">Entertainment</a></div>
+          <div id="navigationitems"><a href="index.html#commentcolumn">Comment Column</a></div>
+          </div>
+      </nav>
+    </header>
+    <div class="container">
+      <main>
+        <h1>For Travellers</h1><hr>
 
-    function loadComments() {
-        const comments = JSON.parse(localStorage.getItem("comments")) || [];
-        comments.forEach(comment => {
-            displayComment(comment);
-            commentId = Math.max(comment.id, commentId) + 1; // Ensure the next comment id is unique
-        });
-    }
+        <div class="introduction-section">
+          <div class="flex-item"><h3 style="text-align: center;">Introduction</h3>
+            <p>Welcome to Flagstaff, known for cool mountains in the heart of Arizona! It is a little slice of heaven that offers a refreshing change. At an elevation of over 6,900 feet, Flagstaff offers perfect sunny weather in mild summers and snowy winters, making it a year-round destination.Now, let's talk about the good stuff - the food! Downtown Flagstaff is a foodie's dream. Cozy restaurants and cafes offer everything from Southwestern classics to international delicacies. Don't miss the historic Weatherford Hotel or the variety of dining options at Heritage Square, your taste buds will thank you. Outdoor lovers, listen up! Flagstaff is your gateway to adventure. Whether you want to walk, cycle or just enjoy the amazing scenery, it has it all. With easy access to the Grand Canyon and a network of scenic trails called the Flagstaff Urban Trail System, there's no shortage of opportunities to connect with nature. But Flagstaff isn't just about the outdoors, it's rich in history and culture. Northern Arizona University is full of youthful energy. Some things to do at N.A.U include stargazing at the Lowell Observatory, where Pluto was discovered, or soaking up the amazing sights of Route 66 and the thriving arts scene. In short, Flagstaff invites you to experience the perfect blend of weather, diverse cuisine, outdoor excitement, and cultural richness. Whether you're a nature lover or a culture seeker, this small mountain town has something special for every explorer. Come experience the magic of Flagstaff! </p>
+        </div>    
+        </div>  
 
-    function saveComments(comments) {
-        localStorage.setItem("comments", JSON.stringify(comments));
-    }
+        <br>
+        <br>
+        <a href="https://www.google.com/maps/place/Flagstaff,+AZ/@35.1861527,-111.6438579,13.04z/data=!4m6!3m5!1s0x872d8ef7da2e2631:0x8e1f3ca1cedbb300!8m2!3d35.1982836!4d-111.651302!16zL20vMGZzdjI?entry=ttu">Click to View Map of Flagstaff</a>
+        <br>
+        <br>
+     <div id="pic1">
+      <img src="./files/Panorama_of_Flagstaff_(cropped).jpg" alt="Flagstaff Town Picture" width="1300"/>
+       </div>
+         
+       <br>
 
-    function addComment(commentText) {
-        if (commentText.trim() !== "") {
-            const comment = { id: commentId, text: commentText };
-            displayComment(comment);
+    <section id="weather">
+      <h1 style="text-align: center;">Weather</h1>
 
-            // Save the comment to local storage
-            const comments = JSON.parse(localStorage.getItem("comments")) || [];
-            comments.push(comment);
-            saveComments(comments);
+    <div class="weather-section">
+        <p>Flagstaff, Arizona, is a beautiful place, and you can have a much better trip experience if you are aware of its peculiar weather. Imagine this: the summertime weather is a dream come true, a reprieve from the scorching temperatures experienced in other regions of Arizona. comfortable highs in the 70s and 80s during the day, ideal for all those outside activities. The drawback is that evenings can turn chilly, so bring along a lightweight jacket just in case.
+Aspen and maple trees display their vivid colors in the fall, turning Flagstaff into a colorful canvas. The 50s to 70s are predicted to be the ideal temperature range for beautiful walks and warm evenings.
+Winter is another entirely. Winter has arrived with the town covered with snow. Prepare for skiing and snowboarding if you're an avid snow person. Just remember to pack your warmest clothing because the weather is chilly!
+The thaw that occurs as spring approaches covers the countryside with lush greenery and wildflowers. The ideal time to explore the city and its environs is during the day, when temperatures typically range from the 50s to the 60s.
+To put it briefly, Flagstaff's weather is akin to a mood ring—it changes with the seasons and caters to a variety of traveler preferences.
+</p>
+       </div>
+    </section>
 
-            commentId++;
-        }
-    }
+        <hr>
+        <br> 
+   <section id="outdooractivities">
+    <h1 style="text-align: center;">Outdoor Activities</h1>
 
-    function displayComment(comment) {
-        const commentDiv = document.createElement("div");
-        commentDiv.className = "comment";
-        commentDiv.id = "comment" + comment.id;
-        commentDiv.innerHTML = `
-            <p>${comment.text}</p>
-            <button class="edit-btn" data-id="${comment.id}">Edit</button>
-            <button class="delete-btn" data-id="${comment.id}">Delete</button>
-        `;
-        commentsContainer.appendChild(commentDiv);
+    <div class="outdooractivities-section">
+        <p>For outdoor lovers, Flagstaff, Arizona, tucked away in the breathtaking scenery of the Coconino National Forest, is a sanctuary. Its closeness to the Grand Canyon—just 80 miles away—is one of its main draws. Adventurers are drawn to this natural wonder to see its breathtaking views, and Flagstaff is a great starting point to see this famous site. Flagstaff turns into a wintry paradise in the winter, luring adventure seekers to partake in thrilling snow sports. A short drive from the city offers the finest location for snowboarding, skiing, and other winter sports: the Arizona Snowbowl. Both novices and seasoned lovers will have an amazing time on the powdery slopes and clean mountain air. Flagstaff offers a vast network of mountain hiking trails for those seeking a more grounded experience. Every trip is an adventure through the magnificence of nature because of the amazing views from the paths, which include the lush pine forests and the majestic San Francisco Peaks. Flagstaff Urban Trails System (FUTS) provides hikers of all skill levels with a variety of alternatives appropriate for varying degrees of fitness, allowing them to enjoy the natural splendor around this quaint city. Flagstaff is essentially a sanctuary for outdoor aficionados, providing a wide array of activities that honor the infinite glories of the natural world.</p>
+    </div>
+   </section>
+        <br>
+        <br>
+        <a href="https://www.google.com/maps/place/Arizona+Snowbowl/@35.3307109,-111.7084171,17z/data=!3m1!4b1!4m6!3m5!1s0x872d87741004d2cd:0x4d6e27615eb5c167!8m2!3d35.3307109!4d-111.7058368!16zL20vMGR0emY0?entry=ttu">Click to View Location of The Arizona Snowbowl</a>
+        <br>
+        <br>
+         <div id="pic2">
+      <img src="./files/Snowboarding-in-Arizona-Snowbowl1.jpg" alt="Snow Activities" width="1300"/>
+       </div>
 
-        // Add event listeners for edit and delete buttons
-        const editBtn = commentDiv.querySelector('.edit-btn');
-        editBtn.addEventListener('click', function() {
-            editComment(comment.id);
-        });
+        <hr>
+        <br> 
 
-        const deleteBtn = commentDiv.querySelector('.delete-btn');
-        deleteBtn.addEventListener('click', function() {
-            deleteComment(comment.id);
-        });
-    }
+      <section id="entertainment">
+        <h1 style="text-align: center;">Entertainment</h1>
 
-    function editComment(commentId) {
-        const commentDiv = document.getElementById("comment" + commentId);
-        const newText = prompt("Edit your comment:", commentDiv.querySelector('p').textContent);
-        if (newText !== null) {
-            const comments = JSON.parse(localStorage.getItem("comments")) || [];
-            const commentIndex = comments.findIndex(comment => comment.id === commentId);
-            if (commentIndex !== -1) {
-                comments[commentIndex].text = newText;
-                saveComments(comments);
-                commentDiv.querySelector('p').textContent = newText;
-            }
-        }
-    }
+    <div class="entertainment-section">
+         <p>Nestled among the picturesque landscapes of Northern Arizona, Flagstaff stands out not only for its natural beauty, but also for its vibrant entertainment scene, especially in downtown Flagstaff. The heart of the city beats with a variety of entertainment to suit different tastes.The city of Flagstaff is home to a vibrant selection of restaurants, cafes and eateries, each offering a unique culinary experience. From local bistros serving Middle Eastern-inspired dishes to charming cafes where you can sample a cup of craft beer, Flagstaff's cuisine adds a delicious dimension to its entertainment scene.The city of Flagstaff is a center for artistic expression and cultural immersion. in addition to culinary delights. The area is home to art galleries that showcase the talents of local artists and offer visitors the opportunity to interact with a thriving creative community. Live music venues add to the city's dynamic atmosphere, offering acts that span genres from folk to indie rock, ensuring that there is something for every musical taste.In addition to culinary and artistic endeavors, the historic charm of downtown Flagstaff is combined with unique shops and boutiques that invite discovery. From vintage finds to contemporary crafts, the shopping experience adds to the overall entertainment of this charming Arizona city. In conclusion, downtown Flagstaff is a testament to the city's commitment to providing a diverse and engaging entertainment experience, making it a must-see destination for those seeking cultural enrichment and culinary delights..</p>
+    </div>
+      </section>
 
-    function deleteComment(commentId) {
-        const commentDiv = document.getElementById("comment" + commentId);
-        const confirmDelete = confirm("Are you sure you want to delete this comment?");
-        if (confirmDelete) {
-            const comments = JSON.parse(localStorage.getItem("comments")) || [];
-            const updatedComments = comments.filter(comment => comment.id !== commentId);
-            saveComments(updatedComments);
-            commentDiv.remove();
-        }
-    }
+        <br>
+        <br>
+        <a href="https://www.google.com/maps/place/Downtown+Flagstaff/@35.1987337,-111.6509062,17z/data=!3m1!4b1!4m6!3m5!1s0x872d8f4143a20567:0xf903924a8ea3e7b9!8m2!3d35.1987337!4d-111.6483259!16s%2Fg%2F11dft80m5c?entry=ttu">Click to View Location of Downtown Flagstaff</a>
+        <br>
+        <br>
+         <div id="pic3">
+      <img src="./files/flagstafffdowntown.jpg" alt="Snow Activities" width="1300"/>
+       </div>
+        <hr>
+        <br>
 
-    // Event listener for submitting the comment form
-    commentForm.addEventListener("submit", function (event) {
-        event.preventDefault(); // Prevent the form from submitting and refreshing the page
-        const commentText = commentForm.querySelector("#comment").value;
-        addComment(commentText);
-        commentForm.reset(); // Clear the form after adding the comment
-    });
-});
+        <section id="commentcolumn">
+        <h1 style="text-align: center;">Comment Column</h1>
+        <div class="commentcolumn-section">
+          <div id="comments-container">
+         </div>
+
+         <form id="comment-form">
+         <label for="comment">Add a comment:</label>
+         <textarea id="comment" placeholder="Type your comment here..."></textarea>
+         <button type="button" id="addComment-btn">Add Comment</button>
+         </form>
+  
+        </div>
+        </section>
+       <script src="script.js"></script>
+
+      </main>
+       
+      <footer>
+        <section id="Contact-Info">
+          <h6>Authores:
+          <div id="Authors">
+            Tianyi (Bruce) Chen
+            <a href="mailto:tc922@nau.edu" id="email">tc922@nau.edu</a><br>
+            Ahmed Abakar
+            <a href="mailto:ama2758" id="email">ama2758@nau.edu</a><br> <br>
+            Project Under CS212 web programming Spring 2024 
+          </div>
+          </h6>
+        </section>
+      </footer>
+    </div>
+</body>
+</html>
