@@ -1,71 +1,51 @@
-// Import Node.js file system module if working in Node.js environment
-const fs = require('fs');
+document.addEventListener("DOMContentLoaded", function () {
+  const commentsContainer = document.getElementById("comments-container");
+  const commentForm = document.getElementById("comment-form");
+  let commentId = 1;
 
-// Function to load comments from JSON file
-function loadCommentsFromFile() {
-    try {
-        const data = fs.readFileSync('comments.json', 'utf8');
-        return JSON.parse(data);
-    } catch (err) {
-        console.error('Error reading comments file:', err);
-        return [];
-    }
-}
+  // Load comments from local storage when the page loads
+  loadComments();
 
-// Function to save comments to JSON file
-function saveCommentsToFile(comments) {
-    try {
-        fs.writeFileSync('comments.json', JSON.stringify(comments, null, 2));
-    } catch (err) {
-        console.error('Error writing comments file:', err);
-    }
-}
+  function loadComments() {
+    const comments = JSON.parse(localStorage.getItem("comments")) || [];
+    comments.forEach(comment => {
+      displayComment(comment);
+      commentId++;
+    });
+  }
 
-// Initialize comments array
-let comments = loadCommentsFromFile();
+  function saveComments(comments) {
+    localStorage.setItem("comments", JSON.stringify(comments));
+  }
 
-// Function to add a new comment
-function addComment() {
+  function addComment() {
     const commentText = document.getElementById("comment").value.trim();
 
     if (commentText !== "") {
-        const commentId = comments.length + 1;
-        const newComment = { id: commentId, text: commentText };
-        comments.push(newComment);
+      const comment = { id: commentId, text: commentText };
+      displayComment(comment);
 
-        // Save comments to file
-        saveCommentsToFile(comments);
+      // Save the comment to local storage
+      const comments = JSON.parse(localStorage.getItem("comments")) || [];
+      comments.push(comment);
+      saveComments(comments);
 
-        // Display the new comment
-        displayComment(newComment);
-
-        // Reset the comment form
-        document.getElementById("comment").value = "";
+      commentForm.reset();
+      commentId++;
     }
-}
+  }
 
-// Function to display comments on page load
-document.addEventListener("DOMContentLoaded", function () {
-    comments.forEach(comment => {
-        displayComment(comment);
-    });
-});
-
-// Other existing JavaScript code...
-
-// Function to display a comment
-function displayComment(comment) {
-    const commentsContainer = document.getElementById("comments-container");
+  function displayComment(comment) {
     const commentDiv = document.createElement("div");
     commentDiv.className = "comment";
     commentDiv.id = "comment" + comment.id;
 
     commentDiv.innerHTML = `
-        <p>${comment.text}</p>
-        <button class="edit-btn">Edit</button>
-        <button class="delete-btn">Delete</button>
-        <button class="reply-btn">Reply</button>
-        <div id="reply-container${comment.id}" class="reply-container"></div>
+      <p>${comment.text}</p>
+      <button class="edit-btn">Edit</button>
+      <button class="delete-btn">Delete</button>
+      <button class="reply-btn">Reply</button>
+      <div id="reply-container${comment.id}" class="reply-container"></div>
     `;
 
     commentsContainer.appendChild(commentDiv);
@@ -75,55 +55,51 @@ function displayComment(comment) {
     const deleteButtons = commentDiv.querySelectorAll(".delete-btn");
 
     editButtons.forEach(button => {
-        button.addEventListener("click", () => editComment(comment.id, comment.text));
+      button.addEventListener("click", () => editComment(comment.id, comment.text));
     });
 
     deleteButtons.forEach(button => {
-        button.addEventListener("click", () => deleteComment(comment.id));
+      button.addEventListener("click", () => deleteComment(comment.id));
     });
-}
+  }
 
-// Function to edit a comment
-function editComment(id, currentText) {
+  function editComment(id, currentText) {
     const newText = prompt("Edit your comment:", currentText);
 
     if (newText !== null) {
-        const comment = comments.find(comment => comment.id === id);
+      const comments = JSON.parse(localStorage.getItem("comments")) || [];
+      const comment = comments.find(comment => comment.id === id);
 
-        if (comment) {
-            comment.text = newText;
-            saveCommentsToFile(comments);
-
-            const commentDiv = document.getElementById("comment" + id);
-            commentDiv.querySelector("p").innerText = newText;
-        }
-    }
-}
-
-// Function to delete a comment
-function deleteComment(id) {
-    const index = comments.findIndex(comment => comment.id === id);
-    if (index !== -1) {
-        comments.splice(index, 1);
-        saveCommentsToFile(comments);
+      if (comment) {
+        comment.text = newText;
+        saveComments(comments);
 
         const commentDiv = document.getElementById("comment" + id);
-        commentDiv.remove();
+        commentDiv.querySelector("p").innerText = newText;
+      }
     }
-}
+  }
 
-// Function to reply to a comment
-function replyToComment(id) {
+  function deleteComment(id) {
+    const comments = JSON.parse(localStorage.getItem("comments")) || [];
+    const updatedComments = comments.filter(comment => comment.id !== id);
+    saveComments(updatedComments);
+
+    const commentDiv = document.getElementById("comment" + id);
+    commentDiv.remove();
+  }
+
+  function replyToComment(id) {
     const replyContainer = document.getElementById("reply-container" + id);
     const replyText = prompt("Type your reply:");
 
     if (replyText !== null) {
-        const replyDiv = document.createElement("div");
-        replyDiv.innerHTML = `<p><em>Reply:</em> ${replyText}</p>`;
-        replyContainer.appendChild(replyDiv);
+      const replyDiv = document.createElement("div");
+      replyDiv.innerHTML = `<p><em>Reply:</em> ${replyText}</p>`;
+      replyContainer.appendChild(replyDiv);
     }
-}
+  }
 
-// Function to handle adding a comment
-document.getElementById("addComment-btn").addEventListener("click", addComment);
- 
+  const addCommentBtn = document.getElementById("addComment-btn");
+  addCommentBtn.addEventListener("click", addComment);
+});
