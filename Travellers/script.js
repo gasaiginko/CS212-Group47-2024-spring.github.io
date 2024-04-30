@@ -108,7 +108,7 @@ const fs = require('fs');
 
 function readComments() {
   try {
-    const data = fs.readFileSync('comments.json', 'utf8');
+    const data = fs.readFileSync('Travellers/comments.json', 'utf8');
     return JSON.parse(data);
   } catch (err) {
     console.error('Error reading comments file:', err);
