@@ -103,3 +103,24 @@ document.addEventListener("DOMContentLoaded", function () {
   const addCommentBtn = document.getElementById("addComment-btn");
   addCommentBtn.addEventListener("click", addComment);
 });
+
+const fs = require('fs');
+
+function readComments() {
+  try {
+    const data = fs.readFileSync('comments.json', 'utf8');
+    return JSON.parse(data);
+  } catch (err) {
+    console.error('Error reading comments file:', err);
+    return [];
+  }
+}
+
+function writeComments(comments) {
+  try {
+    fs.writeFileSync('comments.json', JSON.stringify(comments));
+    console.log('Comments saved successfully.');
+  } catch (err) {
+    console.error('Error writing comments file:', err);
+  }
+}
