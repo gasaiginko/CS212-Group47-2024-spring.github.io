@@ -2,6 +2,9 @@
 
 **Also available at Azure: [https://tc922.z13.web.core.windows.net/finalproject/index.html](https://tc922.z13.web.core.windows.net/finalproject/index.html)**
 
+Phase-1: [https://tc922.z13.web.core.windows.net/project/phase-1/](https://tc922.z13.web.core.windows.net/project/phase-1/)
+Phase-2: [https://tc922.z13.web.core.windows.net/project/phase-2/](https://tc922.z13.web.core.windows.net/project/phase-2/)
+
 ## Please Write Down your updates to prevent overwriting, format: (file, content, time-date), and please insert your new code instead of directly upload (if the file already exists) ##
 **Example: 1. (/Travellers/script.js, comment added, 20:00-4-17)**
 1. (index.html and /styles/script.js and styles.css, weather function added, 20:36-4-19)
