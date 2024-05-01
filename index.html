@@ -86,6 +86,92 @@
             </div>
 
             </section><hr>
+
+            <section id="comment">
+                <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+                <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+                <script>
+                    class firebase_RTDB{
+                        constructor(){
+                            // firebase id info, copied from project page
+                            const firebaseConfig = {
+                                apiKey: "AIzaSyCAsBey3HIrjbD3K1HJaTKG4STUsVXdLh4",
+                                authDomain: "cs212-project-comment.firebaseapp.com",
+                                databaseURL: "https://cs212-project-comment-default-rtdb.firebaseio.com",
+                                projectId: "cs212-project-comment",
+                                storageBucket: "cs212-project-comment.appspot.com",
+                                messagingSenderId: "144268774456",
+                                appId: "1:144268774456:web:1e97c421cdbad803636acd",
+                                measurementId: "G-L2E4DQRJHN"
+                                };
+                            this.FB = firebase.initializeApp(firebaseConfig);
+                            this.FBRTDB = firebase.database()
+                            this.getComments()
+                            this.fetchComments()
+                        }
+
+                        postComment(){
+                            var comment = document.getElementById('commentText').value // Get comment from textarea
+                            var user = document.getElementById('comment-user').value //the preferred name of user
+                            console.log(`Submitted Comment: ${comment} Type: ${typeof(comment)}`)
+                            this.getComments()
+                            var id = this.commentIndex
+                            if (id < 1){id = 1}
+                            id = String(id)
+                            var commentElementref = `comment${id}/`
+                            console.log(commentElementref)
+                            this.FBRTDB.ref(commentElementref).set({
+                                user: user,  
+                                text: comment,
+                                timestamp: Date.now()  // Add a timestamp
+                            });
+                        }
+
+                        fetchComments(){
+                            this.getComments()
+
+                            var comments = document.createElement('div')
+                            comments.setAttribute('id','commentdiv')
+
+                            for (let i = 1; i <= this.commentIndex -1; i++){
+                                var commentElementref = `comment${i}/`
+                                console.log(commentElementref)
+                                var commentsRef = firebase.database().ref(commentElementref);
+                                commentsRef.on('value', function(data) {
+                                    var comment = data.val();
+                                    console.log(comment.user)
+                                    if (comment == null){}
+                                    else{   
+                                        document.getElementById('comments').innerHTML += `<p>${comment.user}: ${comment.text}</p>`; 
+                                    }
+                                });
+                            }
+                        }
+                        getComments(){
+                            var RTDBdata = firebase.database().ref();
+                            RTDBdata.child('/').get().then((snapshot) => {
+                            const comments =  Object.keys(snapshot.val())
+                            this.commentIndex = comments.length +1  //start from 0
+                            console.log(this.commentIndex)
+                            
+                            }).catch((error) => {console.error(error);})
+                        }
+                    }
+                    const FBRTDB = new firebase_RTDB()
+                    
+                    setTimeout(function(){FBRTDB.fetchComments()},500)
+                </script>                
+                <p>Preferred Call: </p><input type="text" value="Noname" id="comment-user" style="position: relative; top: -45px; left: 130px;">
+                <div style="position: relative; top: -30px;">
+                <textarea id="commentText" style="width: 70%;"></textarea>
+                <br>
+                <button onclick="FBRTDB.postComment()">Submit Your Comment</button>
+                </div>
+                <div id="comments" style="background-color: rgb(122, 166, 205); border-radius: 4px;">
+                    <p>Comments: </p>
+                </div>
+                
+            </section>
         </main>
 
         <footer>
