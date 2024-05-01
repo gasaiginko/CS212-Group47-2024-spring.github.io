@@ -68,21 +68,27 @@
             </section>
             
             <section id="Traveller">
-            <h4><a href="./Travellers/index.html">Travellers' Entry:</a></h4>
+            <h4><a href="./Travellers/index.html">Travellers' Entry (click here to access):</a></h4>
             <div class="Traveller">
-                ---Introduction of Flagstaff for travellers <br>
-                ---Places of interests: (introduction, weather, comment column, surrounding restaraunts and malls)
+                <ul>
+                    <li> <a href="">Weather</a> </li>
+                    <li><a href="">Outdoor Activities</a></li>
+                    <li><a href="">Entertainment</a></li>
+                    <li><a href="">Comment Column</a></li>
+                </ul>
             </div>
             <hr>    <!-- hyper link element-->
             </section>
             
             <section id="NAU">
-            <h4><a href="./NAU/index.html">Students at NAU Entry:</a></h4>
+            <h4><a href="./NAU/index.html">Students at NAU Entry (click here to access):</a></h4>
             <div class="NAU">
-                ---Surrounding Malls <br>
-                ---Surrounding Restaraunt <br>
-                ---Policy Tips <br>
-                ---Places for study <br>
+                <ul>
+                    <li><a href="">Malls</a></li>
+                    <li> <a href="">Study</a> </li>
+                    <li> <a href="">School Life</a> </li>
+                    <li> <a href="">Dormitory</a> </li>
+                </ul>
             </div>
 
             </section><hr>
@@ -159,7 +165,7 @@
                     }
                     const FBRTDB = new firebase_RTDB()
                     
-                    setTimeout(function(){FBRTDB.fetchComments()},500)
+                    setTimeout(function(){FBRTDB.fetchComments()},500)  //this delay is necessary.
                 </script>                
                 <p>Preferred Call: </p><input type="text" value="Noname" id="comment-user" style="position: relative; top: -45px; left: 130px;">
                 <div style="position: relative; top: -30px;">
